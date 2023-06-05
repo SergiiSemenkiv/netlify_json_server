@@ -1,10 +1,7 @@
-const fs = require('fs');
-const data = fs.readFileSync(require.resolve('./data.json'))
-
-// let data = require(dataFilePath);
-
 exports.handler = async (event, context) => {
   const { path, httpMethod, body } = event;
+
+  const data = require('./data.json')
 
   if (path === '/users') {
     if (httpMethod === 'GET') {
