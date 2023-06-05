@@ -1,8 +1,7 @@
 const fs = require('fs');
-const path = require('path');
-const dataFilePath = path.resolve(process.cwd(), 'data.json');
+const data = fs.readFileSync(require.resolve('./data.json'))
 
-let data = require(dataFilePath);
+// let data = require(dataFilePath);
 
 exports.handler = async (event, context) => {
   const { path, httpMethod, body } = event;
