@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
   } else {
     return {
       statusCode: 404,
-      body: JSON.stringify({ message: 'Route not found' })
+      body: JSON.stringify({ message: `Route not found ${path} - ${httpMethod}` })
     };
   }
 };
