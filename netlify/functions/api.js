@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dataFilePath = '../data.json';
+const dataFilePath = './data.json';
 
 let data = require(dataFilePath);
 
