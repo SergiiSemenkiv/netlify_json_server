@@ -3,7 +3,7 @@ exports.handler = async (event, context) => {
 
   const data = require('./data.json')
 
-  if (path === '/users') {
+  if (path === '/api/users') {
     if (httpMethod === 'GET') {
       return {
         statusCode: 200,
