@@ -4,3 +4,7 @@
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "*"
     Access-Control-Allow-Headers = "*"
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
