@@ -1,8 +1,26 @@
 {
     "pages": [
-      { "id": 1, "content": "Page 1 content 123" },
-      { "id": 2, "conten": "Page 2 content" },
-      { "id": 3, "conten": "Page 3 content" }
+      {
+        "name": "Home",
+        "description": "description",
+        "title": "Title",
+        "id": 1,
+        "path": "/"
+      },
+      {
+        "name": "About",
+        "path": "/about",
+        "title": "About page",
+        "description": "About desc",
+        "id": 2
+      },
+      {
+        "name": "Another page",
+        "path": "/another-page",
+        "title": "Some another page",
+        "description": "asdadw",
+        "id": 3
+      }
     ]
   }
   
