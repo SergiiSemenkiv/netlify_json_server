@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
           "Access-Control-Allow-Headers": "Content-Type",
           "Access-Control-Allow-Methods": "GET, POST, OPTION",
         },
-        body: data.pages
+        body: JSON.stringify(data.pages)
       };
     } else if (httpMethod === 'POST') {
       // todo add logic for creating page
