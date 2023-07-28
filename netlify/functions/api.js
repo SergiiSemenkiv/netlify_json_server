@@ -3,6 +3,17 @@ exports.handler = async (event, context) => {
 
   const data = require('./data.json')
 
+  if (httpMethod == "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, OPTION",
+      },
+    };
+  }
+
   if (path === '/api/pages') {
     if (httpMethod === 'GET') {
       return {
