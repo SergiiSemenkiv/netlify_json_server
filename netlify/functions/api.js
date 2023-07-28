@@ -1,16 +1,16 @@
 exports.handler = async (event, context) => {
   const { path, httpMethod, body } = event;
-
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTION",
+  }
   const data = require('./data.json')
 
   if (httpMethod == "OPTIONS") {
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, OPTION",
-      },
+      headers,
     };
   }
 
@@ -18,11 +18,7 @@ exports.handler = async (event, context) => {
     if (httpMethod === 'GET') {
       return {
         statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Methods": "GET, POST, OPTION",
-        },
+        headers,
         body: JSON.stringify(data.pages)
       };
     } else if (httpMethod === 'POST') {
@@ -32,6 +28,7 @@ exports.handler = async (event, context) => {
       data.pages.push(pageObj)
       return {
         statusCode: 200,
+        headers
       };
     }
   } else if (path.startsWith('/api/pages/')) {
@@ -42,6 +39,7 @@ exports.handler = async (event, context) => {
       if (httpMethod === 'GET') {
         return {
           statusCode: 200,
+          headers,
           body: JSON.stringify(data.pages[pageIndex])
         };
       } else if (httpMethod === 'PUT') {
@@ -51,6 +49,7 @@ exports.handler = async (event, context) => {
 
         return {
           statusCode: 200,
+          headers,
           body: JSON.stringify(data.pages[pageIndex])
         };
       }
