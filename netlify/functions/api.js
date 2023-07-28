@@ -11,7 +11,9 @@ exports.handler = async (event, context) => {
       };
     } else if (httpMethod === 'POST') {
       // todo add logic for creating page
-      
+      const pageObg = JSON.parse(body);
+      pageObg.id = data.pages.length + 1
+      data.pages.push(pageObj)
       return {
         statusCode: 200,
       };
